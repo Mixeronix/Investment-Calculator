@@ -1,0 +1,16 @@
+{
+  "name": "investment-calculator",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@types/node": "20.2.1",
+    "@types/react": "18.2.6",
+    "typescript": "5.0.4"
+  }
+}
