@@ -28,17 +28,19 @@ export default function MainCard() {
 	const [years, setYears] = useState(1);
 	const [annual, setAnnual] = useState(1);
 
-	function passData({ starting, monthly, years, annual }: passDataFunction) {
-		setAnnual(annual);
-		setStarting(starting);
-		setMonthly(monthly);
-		setYears(years);
-	}
-
 	return (
 		<section className="bg-gray-950 w-3/4 rounded-3xl aspect-video p-32 flex justify-between">
 			<Title />
-			<Calculator returnValues={passData} />
+			<Calculator
+				setStarting={setStarting}
+				setMonthly={setMonthly}
+				setYears={setYears}
+				setAnnual={setAnnual}
+				starting={starting}
+				monthly={monthly}
+				years={years}
+				annual={annual}
+			/>
 		</section>
 	);
 }
