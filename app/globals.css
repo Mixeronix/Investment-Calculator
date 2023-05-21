@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.numberInput {
+		@apply bg-gray-100 rounded-md text-violet-600 py-3 px-4 outline-none mt-2;
+	}
+
+	.sliderInput {
+		@apply bg-violet-600 mt-5 outline-none appearance-none bg-transparent cursor-pointer;
+	}
+
+	.sliderInput::-webkit-slider-runnable-track {
+		background-color: #7c3aed;
+		border-radius: 0.5rem;
+		height: 1rem;
+	}
+
+	.sliderInput::-webkit-slider-thumb {
+		@apply appearance-none -mt-2 rounded-full bg-white outline-2 outline outline-violet-700 w-4 h-8;
+	}
+
+	.sliderInput::-moz-range-track {
+		@apply rounded-full bg-white outline-2 outline outline-violet-700 w-4 h-8;
+	}
+
+	.sliderInput::-moz-range-thumb {
+		@apply rounded-full bg-white outline-2 outline outline-violet-700 w-4 h-8;
+	}
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
