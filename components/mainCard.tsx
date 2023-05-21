@@ -1,3 +1,5 @@
+"use client";
+
 import { Open_Sans } from "next/font/google";
 import Calculator from "./calculator";
 
@@ -6,6 +8,10 @@ const openSansFont = Open_Sans({
 	subsets: ["latin"],
 });
 
+type passDataFunction = { starting: number; monthly: number; years: number; annual: number };
+
+function passData({ starting, monthly, years, annual }: passDataFunction) {}
+
 export default function MainCard() {
 	return (
 		<section className="bg-gray-950 w-3/4 rounded-3xl aspect-video p-32 flex justify-between">
@@ -13,7 +19,7 @@ export default function MainCard() {
 				Calculate your <br /> investments
 			</h1>
 
-			<Calculator />
+			<Calculator returnValues={passData} />
 		</section>
 	);
 }
