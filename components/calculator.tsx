@@ -1,18 +1,23 @@
 "use client";
 
 import { Open_Sans } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const openSansFont = Open_Sans({
 	weight: "700",
 	subsets: ["latin"],
 });
 
-export default function Calculator(props: any) {
+export default function Calculator(props: { returnValues: Function }) {
 	const [starting, setStarting] = useState(0);
 	const [monthly, setMonthly] = useState(0);
 	const [years, setYears] = useState(1);
 	const [annual, setAnnual] = useState(1);
+
+	useEffect(() => {
+		props.returnValues({ starting, monthly, years, annual });
+		console.log(props);
+	}, [starting, monthly, years, annual]);
 
 	return (
 		<div className={"bg-white rounded-3xl p-10 flex flex-col w-1/3 justify-around " + openSansFont.className}>
@@ -65,7 +70,6 @@ export default function Calculator(props: any) {
 
 				<input type="range" id="annual" className="sliderInput" value={annual} min={1} max={100} onChange={(e) => setAnnual(e.target.valueAsNumber)} />
 			</div>
-			<button onClick={() => props.returnValues({ starting, monthly, years, annual })}>aa</button>
 		</div>
 	);
 }
