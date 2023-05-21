@@ -10,7 +10,19 @@ const openSansFont = Open_Sans({
 
 type passDataFunction = { starting: number; monthly: number; years: number; annual: number };
 
-function passData({ starting, monthly, years, annual }: passDataFunction) {}
+function passData({ starting, monthly, years, annual }: passDataFunction) {
+	console.log(returnValues({ starting, monthly, years, annual }));
+}
+
+function returnValues({ starting, monthly, years, annual }: passDataFunction): number {
+	let i: number = years - 1;
+
+	if (years == 1) {
+		return ((annual + 100) / 100) * (starting + monthly * 12);
+	} else {
+		return ((annual + 100) / 100) * (returnValues({ starting, monthly, years: i, annual }) + monthly * 12);
+	}
+}
 
 export default function MainCard() {
 	return (
