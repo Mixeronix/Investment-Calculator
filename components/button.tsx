@@ -9,7 +9,7 @@ export default function Button(props: { text: string }) {
 	return (
 		<button
 			className={
-				"text-white text-xl lg:text-2xl 2xl:text-3xl text-center tracking-wide leading-snug bg-violet-600 lg:absolute lg:bottom-14 xl:bottom-18 2xl:bottom-32 relative px-10 py-3 lg:py-4 lg:px-14 2xl:px-20 2xl:py-5 rounded-xl " +
+				"xl:bottom-18 relative rounded-xl bg-violet-600 px-10 py-3 text-center text-xl leading-snug tracking-wide text-white lg:absolute lg:bottom-14 lg:px-14 lg:py-4 lg:text-2xl 2xl:bottom-32 2xl:px-20 2xl:py-5 2xl:text-3xl " +
 				openSansFont.className
 			}
 		>

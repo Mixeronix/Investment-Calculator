@@ -4,11 +4,11 @@
 
 @layer components {
 	.numberInput {
-		@apply bg-gray-100 rounded-md text-violet-600 py-3 px-4 outline-none mt-2;
+		@apply mt-2 rounded-md bg-gray-100 px-4 py-3 text-violet-600 outline-none;
 	}
 
 	.sliderInput {
-		@apply bg-violet-600 mt-5 outline-none appearance-none bg-transparent cursor-pointer;
+		@apply mt-5 cursor-pointer appearance-none bg-transparent bg-violet-600 outline-none;
 	}
 
 	.sliderInput::-webkit-slider-runnable-track {
@@ -18,15 +18,15 @@
 	}
 
 	.sliderInput::-webkit-slider-thumb {
-		@apply appearance-none -mt-2 rounded-full bg-white outline-2 outline outline-violet-700 w-4 h-8;
+		@apply -mt-2 h-8 w-4 appearance-none rounded-full bg-white outline outline-2 outline-violet-700;
 	}
 
 	.sliderInput::-moz-range-track {
-		@apply rounded-full bg-white outline-2 outline outline-violet-700 w-4 h-8;
+		@apply h-8 w-4 rounded-full bg-white outline outline-2 outline-violet-700;
 	}
 
 	.sliderInput::-moz-range-thumb {
-		@apply rounded-full bg-white outline-2 outline outline-violet-700 w-4 h-8;
+		@apply h-8 w-4 rounded-full bg-white outline outline-2 outline-violet-700;
 	}
 }
 
