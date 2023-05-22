@@ -9,11 +9,11 @@ export default function Title() {
 	return (
 		<h1
 			className={
-				"text-white text-2xl text-center lg:text-left sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-8xl tracking-wide leading-snug m-auto lg:mt-10  " +
-				openSansFont.className
+				openSansFont.className +
+				" text-2xl text-white sm:text-3xl text-center lg:text-left md:text-4xl xl:text-5xl 2xl:text-8xl tracking-wide leading-snug m-auto lg:mt-10"
 			}
 		>
-			Calculate your investments
+			Calculate investments
 		</h1>
 	);
 }
