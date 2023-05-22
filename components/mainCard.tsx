@@ -29,7 +29,7 @@ export default function MainCard() {
 	const [annual, setAnnual] = useState(1);
 
 	return (
-		<section className="bg-gray-950 w-4/5 lg:w-3/4 rounded-3xl xl:aspect-video p-12 md:p-14 xl:p-18 2xl:p-32 flex flex-col lg:flex-row justify-between gap-y-10">
+		<section className="bg-gray-900 w-11/12  md:w-4/5 lg:w-3/4 rounded-3xl xl:aspect-video px-4 py-8 sm:p-12 md:p-14 xl:p-18 2xl:p-32 flex flex-col lg:flex-row justify-between gap-y-10">
 			<Title />
 			<Calculator
 				setStarting={setStarting}
