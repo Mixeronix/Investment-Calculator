@@ -7,8 +7,12 @@ const openSansFont = Open_Sans({
 
 export default function Title() {
 	return (
-		<h1 className={"text-white text-7xl tracking-wide leading-snug " + openSansFont.className}>
-			Calculate your <br /> investments
+		<h1
+			className={
+				"text-white text-3xl text-center lg:text-left md:text-4xl xl:text-5xl 2xl:text-7xl tracking-wide leading-snug m-auto lg:mt-10 " + openSansFont.className
+			}
+		>
+			Calculate your investments
 		</h1>
 	);
 }

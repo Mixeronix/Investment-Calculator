@@ -18,7 +18,12 @@ type propsType = {
 
 export default function Calculator(props: propsType) {
 	return (
-		<div className={"bg-white rounded-3xl p-10 flex flex-col w-1/3 justify-around " + openSansFont.className}>
+		<div
+			className={
+				"bg-white rounded-3xl text-sm md:text-md p-10 flex flex-col gap-y-10 md:gap-y-8 lg:gap-y-5 xl:gap-y-0 w-full lg:w-3/5 2xl:w-1/3 justify-around " +
+				openSansFont.className
+			}
+		>
 			<div className="flex flex-col">
 				<label htmlFor="starting" className="flex flex-row justify-between">
 					Starting amount

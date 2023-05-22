@@ -29,7 +29,7 @@ export default function MainCard() {
 	const [annual, setAnnual] = useState(1);
 
 	return (
-		<section className="bg-gray-950 w-3/4 rounded-3xl aspect-video p-32 flex justify-between">
+		<section className="bg-gray-950 w-4/5 lg:w-3/4 rounded-3xl xl:aspect-video p-12 md:p-14 xl:p-18 2xl:p-32 flex flex-col lg:flex-row justify-between gap-y-10">
 			<Title />
 			<Calculator
 				setStarting={setStarting}
