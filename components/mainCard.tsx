@@ -29,25 +29,34 @@ export default function MainCard() {
 	const [monthly, setMonthly] = useState(0);
 	const [years, setYears] = useState(1);
 	const [annual, setAnnual] = useState(1);
+	const [isGraphShow, setGraphState] = useState(false);
 
-	function showValues() {
+	function changeState() {
+		const stateNow = !isGraphShow;
+		setGraphState(stateNow);
+
 		console.log(returnValues({ starting, monthly, years, annual }));
 	}
 
 	return (
 		<section className="relative flex w-11/12 flex-col justify-between gap-y-6 rounded-3xl bg-gray-900 px-4 py-8 sm:p-12 md:w-4/5 md:p-14 lg:w-3/4 lg:flex-row xl:aspect-video xl:p-12 2xl:p-24">
-			<Title value={returnValues({ starting, monthly, years, annual })} />
-			<Calculator
-				setStarting={setStarting}
-				setMonthly={setMonthly}
-				setYears={setYears}
-				setAnnual={setAnnual}
-				starting={starting}
-				monthly={monthly}
-				years={years}
-				annual={annual}
-			/>
-			<Button text="Calculate" calculateFn={() => showValues} />
+			{isGraphShow ? <></> : <Title value={returnValues({ starting, monthly, years, annual })} />}
+			{isGraphShow ? (
+				<></>
+			) : (
+				<Calculator
+					setStarting={setStarting}
+					setMonthly={setMonthly}
+					setYears={setYears}
+					setAnnual={setAnnual}
+					starting={starting}
+					monthly={monthly}
+					years={years}
+					annual={annual}
+				/>
+			)}
+
+			{isGraphShow ? <Button text="Less datails" calculateFn={() => changeState} /> : <Button text="Details" calculateFn={() => changeState} />}
 		</section>
 	);
 }
