@@ -23,15 +23,20 @@ function returnValues({ starting, monthly, years, annual }: passDataFunction): n
 	return yearValue;
 }
 
+
 export default function MainCard() {
 	const [starting, setStarting] = useState(0);
 	const [monthly, setMonthly] = useState(0);
 	const [years, setYears] = useState(1);
 	const [annual, setAnnual] = useState(1);
 
+	function showValues() {
+		console.log(returnValues({ starting, monthly, years, annual }));
+	}
+
 	return (
 		<section className="relative flex w-11/12 flex-col justify-between gap-y-6 rounded-3xl bg-gray-900 px-4 py-8 sm:p-12 md:w-4/5 md:p-14 lg:w-3/4 lg:flex-row xl:aspect-video xl:p-12 2xl:p-24">
-			<Title />
+			<Title value={returnValues({ starting, monthly, years, annual })} />
 			<Calculator
 				setStarting={setStarting}
 				setMonthly={setMonthly}
@@ -42,7 +47,7 @@ export default function MainCard() {
 				years={years}
 				annual={annual}
 			/>
-			<Button text="Calculate" />
+			<Button text="Calculate" calculateFn={() => showValues} />
 		</section>
 	);
 }

@@ -5,7 +5,7 @@ const openSansFont = Open_Sans({
 	subsets: ["latin"],
 });
 
-export default function Title() {
+export default function Title(props: { value: number }) {
 	return (
 		<h1
 			className={
@@ -14,6 +14,9 @@ export default function Title() {
 			}
 		>
 			Calculate investments
+			<br />
+			<br />
+			<span className="text-3xl text-violet-600">{Math.round(props.value * 100) / 100}$</span>
 		</h1>
 	);
 }
