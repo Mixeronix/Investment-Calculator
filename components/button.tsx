@@ -10,7 +10,8 @@ const openSansFont = Open_Sans({
 
 export default function Button(props: { text: string }) {
 	useEffect(() => {
-		const button = document.querySelector("button");
+		const button: any = document.getElementById("clickableButton");
+		let hovered: boolean = false;
 
 		const handleMouseMove = (event: { clientX: number; clientY: number }) => {
 			const rect: any = button?.getBoundingClientRect();
@@ -19,11 +20,35 @@ export default function Button(props: { text: string }) {
 			const x = event.clientX - rect.x;
 			const y = event.clientY - rect.y;
 
-			if (x > 0 && x < rect.width) ripple.style.left = `${x}px`;
-			if (y > 0 && y < rect.height) ripple.style.top = `${y}px`;
+			const lenX = Math.min(x, button.offsetWidth - x);
+			const lenY = Math.min(y, button.offsetHeight - y);
+
+			let posX;
+			let posY;
+
+			if (lenX > lenY) {
+				if (x < 0) posX = -100;
+				else if (x > button.offsetWidth) posX = button.offsetWidth + 100;
+				else posX = x;
+
+				posY = y > button.offsetHeight / 2 ? button.offsetHeight + 100 : -100;
+			} else if (lenX < lenY) {
+				if (y < 0) posY = -100;
+				else if (x > button.offsetHeight) posY = button.offsetHeight + 100;
+				else posY = y;
+
+				posX = x > button.offsetWidth / 2 ? button.offsetWidth + 100 : -100;
+			}
+
+			if (hovered) {
+				ripple.style.left = `${posX}px`;
+				ripple.style.top = `${posY}px`;
+			}
 		};
 
 		window.addEventListener("mousemove", handleMouseMove);
+		button.addEventListener("mouseenter", () => (hovered = true));
+		button.addEventListener("mouseleave", () => (hovered = false));
 
 		return () => {
 			window.removeEventListener("mousemove", handleMouseMove);
@@ -39,9 +64,10 @@ export default function Button(props: { text: string }) {
 		>
 			<div
 				id="ripple"
-				className="pointer-events-none absolute aspect-square h-auto w-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white transition-all duration-500 group-hover:w-2full"
+				className="pointer-events-none absolute aspect-square h-auto w-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white duration-500 group-hover:w-2full"
 			></div>
-			<div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-violet-600 opacity-0 transition-all group-hover:opacity-100">
+
+			<div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-violet-600 opacity-0 transition-all delay-150 group-hover:opacity-100 lg:delay-0">
 				{props.text}
 			</div>
 			<div className="text-white">{props.text}</div>
