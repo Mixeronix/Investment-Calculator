@@ -15,7 +15,7 @@ export default function Title(props: { value: number }) {
 		>
 			Calculate investments
 			<br />
-			<span className={`text-3xl text-violet-600 transition-all ${props.value != 0 ? "opacity-100" : "opacity-0"}`}>
+			<span className={`text-xl text-violet-600 transition-all sm:text-2xl lg:text-3xl ${props.value != 0 ? "opacity-100" : "opacity-0"}`}>
 				{(Math.round(props.value * 100) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "$"}
 			</span>
 		</h1>

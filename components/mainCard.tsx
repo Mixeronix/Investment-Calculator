@@ -63,7 +63,11 @@ export default function MainCard() {
 				/>
 			)}
 
-			{isGraphShow ? <Button text="Less datails" calculateFn={() => changeState} /> : <Button text="Details" calculateFn={() => changeState} />}
+			{isGraphShow ? (
+				<Button text="Less datails" calculateFn={() => changeState} active={true} />
+			) : (
+				<Button text="Details" calculateFn={() => changeState} active={starting != 0 || monthly != 0} />
+			)}
 		</section>
 	);
 }

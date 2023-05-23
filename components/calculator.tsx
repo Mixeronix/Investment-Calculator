@@ -20,7 +20,7 @@ export default function Calculator(props: propsType) {
 	return (
 		<div
 			className={
-				"md:text-md flex w-full flex-col justify-around gap-y-8 rounded-3xl bg-white p-10 text-sm lg:w-3/5 lg:gap-y-5 xl:gap-y-0 2xl:w-1/3 2xl:text-lg " +
+				"md:text-md flex w-full flex-col justify-around gap-y-6 rounded-3xl bg-white p-8 text-sm md:gap-y-8 md:p-10 lg:w-3/5 lg:gap-y-5 xl:gap-y-0 2xl:w-1/3 2xl:p-12 2xl:text-lg " +
 				openSansFont.className
 			}
 		>
