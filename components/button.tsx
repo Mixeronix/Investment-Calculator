@@ -27,17 +27,17 @@ export default function Button(props: { text: string; calculateFn: Function }) {
 			let posY;
 
 			if (lenX > lenY) {
-				if (x < 0) posX = -100;
-				else if (x > button.offsetWidth) posX = button.offsetWidth + 100;
+				if (x < 0) posX = -200;
+				else if (x > button.offsetWidth) posX = button.offsetWidth + 200;
 				else posX = x;
 
-				posY = y > button.offsetHeight / 2 ? button.offsetHeight + 100 : -100;
+				posY = y > button.offsetHeight / 2 ? button.offsetHeight + 200 : -200;
 			} else if (lenX < lenY) {
-				if (y < 0) posY = -100;
-				else if (x > button.offsetHeight) posY = button.offsetHeight + 100;
+				if (y < 0) posY = -200;
+				else if (x > button.offsetHeight) posY = button.offsetHeight + 200;
 				else posY = y;
 
-				posX = x > button.offsetWidth / 2 ? button.offsetWidth + 100 : -100;
+				posX = x > button.offsetWidth / 2 ? button.offsetWidth + 200 : -200;
 			}
 
 			if (hovered) {
@@ -68,7 +68,7 @@ export default function Button(props: { text: string; calculateFn: Function }) {
 				className="pointer-events-none absolute aspect-square h-auto w-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white duration-500 group-hover:w-3full"
 			></div>
 
-			<div className="absolute left-1/2 top-1/2 z-10 w-full -translate-x-1/2 -translate-y-1/2 text-violet-600 opacity-0 transition-all delay-150 group-hover:opacity-100 lg:delay-75">
+			<div className="absolute left-1/2 top-1/2 z-10 w-full -translate-x-1/2 -translate-y-1/2 text-violet-600 opacity-0 transition-all delay-150 duration-1000 group-hover:opacity-100 lg:delay-75">
 				{props.text}
 			</div>
 			<div className="text-white">{props.text}</div>

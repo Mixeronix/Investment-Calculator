@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			width: {
-				"3full": "300%",
+				"3full": "500%",
 			},
 		},
 	},
