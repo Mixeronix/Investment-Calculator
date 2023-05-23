@@ -17,51 +17,42 @@ export default function Graph(props: { starting: number; monthly: number; intere
 				datasets: [
 					{
 						type: "line",
-
 						label: "Total Contributions",
 						data: Array.from({ length: len }, (_, i) => props.starting + (i + 1) * props.monthly),
 						fill: false,
-						borderColor: "rgb(255, 255 ,255 )",
+						borderColor: "rgb(255, 255, 255)",
 						tension: 0.2,
 					},
 					{
 						type: "line",
-
 						label: "Total Interest Earned",
 						data: Array.from({ length: len }, (_, i) => props.interest[i]),
 						fill: false,
-						borderColor: "rgb(124, 58 ,237 )",
+						borderColor: "rgb(124, 58, 237)",
 						tension: 0.2,
 					},
 					{
 						type: "bar",
-
 						label: "Total Contributions",
 						data: Array.from({ length: len }, (_, i) => props.starting + (i + 1) * props.monthly),
-						// fill: false,
-						backgroundColor: "rgb(255, 255 ,255 , 0.2)",
-						// tension: 0.2,
+						backgroundColor: "rgb(255, 255, 255, 0.2)",
 					},
 					{
 						type: "bar",
-
 						label: "Total Interest Earned",
 						data: Array.from({ length: len }, (_, i) => props.interest[i]),
-						// fill: false,
-						backgroundColor: "rgb(124, 58 ,237 , 0.2)",
-						// tension: 0.2,
+						backgroundColor: "rgb(124, 58, 237, 0.2)",
 					},
 				],
 			},
 			options: {
-				aspectRatio: width >= 1024 ? 2 : 1,
+				aspectRatio: width >= 1024 ? 2 : width >= 640 ? 1 : 7 / 9,
 				scales: {
 					y: {
 						stacked: true,
 						beginAtZero: true,
 						ticks: {
-							// Include a dollar sign in the ticks
-							callback: function (value, index, values) {
+							callback: function (value) {
 								return "$" + value;
 							},
 						},
@@ -70,10 +61,9 @@ export default function Graph(props: { starting: number; monthly: number; intere
 						stacked: true,
 					},
 				},
-
 				plugins: {
 					legend: {
-						display: true,
+						display: width >= 640,
 						labels: {
 							color: "rgb(255, 255, 255)",
 						},

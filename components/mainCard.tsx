@@ -46,7 +46,7 @@ export default function MainCard() {
 	});
 
 	return (
-		<section className="relative flex w-11/12 flex-col justify-between gap-y-6 rounded-3xl bg-gray-900 px-4 py-8 sm:p-12 md:w-4/5 md:p-14 lg:w-3/4 lg:flex-row xl:aspect-video xl:p-12 2xl:p-24">
+		<section className="relative flex w-11/12 flex-col justify-between gap-y-6 rounded-3xl bg-gray-900 px-5 py-8 sm:p-12 md:w-4/5 md:p-14 lg:w-3/4 lg:flex-row xl:aspect-video xl:p-12 2xl:p-24">
 			{isGraphShow ? <></> : <Title value={returnValues({ starting, monthly, years, annual })} />}
 			{isGraphShow ? (
 				<Graph monthly={monthly} starting={starting} interest={interest} />
